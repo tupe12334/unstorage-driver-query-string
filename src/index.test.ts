@@ -94,7 +94,7 @@ describe("Query String Driver", () => {
     });
 
     await storage.setItem("test", "value");
-    
+
     // Verify the data can be retrieved through the storage system
     expect(await storage.getItem("test")).toBe("value");
   });
@@ -169,7 +169,7 @@ describe("Query String Driver", () => {
     // Should only clear app prefixed keys - verify through storage
     expect(await storage.getItem("foo")).toBe(null);
     expect(await storage.getItem("baz")).toBe(null);
-    
+
     // The original non-prefixed keys should still exist in the URL
     // but they're not accessible through this storage instance with base "app"
   });
