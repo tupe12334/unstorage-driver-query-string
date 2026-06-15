@@ -1,5 +1,5 @@
 import { parseQueryString } from './query-parser.js'
-import { get, isPlainObject } from 'lodash'
+import { get, isPlainObject } from 'es-toolkit/compat'
 import type { UrlManager } from './url-manager-interface.js'
 import type { DataManager } from './data-manager-interface.js'
 

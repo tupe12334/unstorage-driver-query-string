@@ -1,7 +1,7 @@
 import type { StorageValue, TransactionOptions, GetKeysOptions } from 'unstorage'
 import type { DataManager } from './data-manager-interface.js'
 import { QueryStringDriverError } from './errors.js'
-import { get, set, has, omit, keys } from 'lodash'
+import { get, set, has, omit, keys } from 'es-toolkit/compat'
 
 function isStorageValue(value: unknown): value is StorageValue {
   return value === null ||

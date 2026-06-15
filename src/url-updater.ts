@@ -2,7 +2,7 @@ import type { QueryStringDriverOptions } from './types.js'
 import type { UrlManager } from './url-manager-interface.js'
 import { stringifyData } from './query-stringifier.js'
 import { parseQueryString } from './query-parser.js'
-import { set } from 'lodash'
+import { set } from 'es-toolkit/compat'
 
 export function createUrlUpdater(
   urlManager: UrlManager,

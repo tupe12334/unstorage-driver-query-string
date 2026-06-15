@@ -1,7 +1,7 @@
 import type { QueryStringDriverOptions } from './types.js'
 import type { UrlManager } from './url-manager-interface.js'
 import { QueryStringDriverError } from './errors.js'
-import validator from 'validator'
+import isURL from 'validator/lib/isURL.js'
 import invariant from 'tiny-invariant'
 
 export function createUrlManager(options: QueryStringDriverOptions): UrlManager {
@@ -13,12 +13,12 @@ export function createUrlManager(options: QueryStringDriverOptions): UrlManager 
       if (internalUrl) return internalUrl
 
       // If it's a relative URL, we need a browser environment for the origin
-      if (!validator.isURL(url) && (typeof window === 'undefined' || !window.location)) {
+      if (!isURL(url) && (typeof window === 'undefined' || !window.location)) {
         throw new QueryStringDriverError('Cannot resolve relative URL in non-browser environment')
       }
 
       try {
-        if (validator.isURL(url)) {
+        if (isURL(url)) {
           internalUrl = new URL(url)
         } else {
           internalUrl = new URL(url, window.location.origin)

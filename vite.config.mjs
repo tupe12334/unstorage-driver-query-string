@@ -24,7 +24,7 @@ export default defineConfig(async ({ command }) => {
         fileName: (format) => `index.${format === 'es' ? 'mjs' : 'js'}`
       },
       rollupOptions: {
-        external: ['unstorage', 'qs', 'lodash', 'validator', 'tiny-invariant', 'history']
+        external: ['unstorage', 'qs', 'es-toolkit', 'validator', 'tiny-invariant', 'history']
       }
     }
   }
