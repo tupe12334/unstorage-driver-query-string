@@ -5,7 +5,10 @@ export default [
   {
     rules: {
       // Require === and !== to avoid implicit type coercion bugs.
-      eqeqeq: ['error', 'always']
+      eqeqeq: ['error', 'always'],
+      // Disallow shorthand type coercions (!!x, +x, '' + x) in favor of
+      // explicit Boolean(x)/Number(x)/String(x) for clearer, safer conversions.
+      'no-implicit-coercion': 'error'
     }
   },
   {
