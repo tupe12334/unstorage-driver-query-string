@@ -5,7 +5,10 @@ export default [
   {
     rules: {
       // Require === and !== to avoid implicit type coercion bugs.
-      eqeqeq: ['error', 'always']
+      eqeqeq: ['error', 'always'],
+      // Force `import type` for type-only imports so they are erased at
+      // compile time and never leak into the runtime bundle.
+      '@typescript-eslint/consistent-type-imports': 'error'
     }
   },
   {
