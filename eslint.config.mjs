@@ -5,7 +5,17 @@ export default [
   {
     rules: {
       // Require === and !== to avoid implicit type coercion bugs.
-      eqeqeq: ['error', 'always']
+      eqeqeq: ['error', 'always'],
+      // Flag unused variables, imports and arguments to catch dead code.
+      // Names prefixed with `_` are treated as intentionally unused.
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_'
+        }
+      ]
     }
   },
   {
