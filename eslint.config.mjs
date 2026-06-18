@@ -11,7 +11,12 @@ export default [
       // and can leak internal state; `console.warn`/`console.error` stay
       // allowed for the driver's legitimate diagnostics (e.g. the URL-length
       // warning in url-updater.ts).
-      'no-console': ['error', { allow: ['warn', 'error'] }]
+      'no-console': ['error', { allow: ['warn', 'error'] }],
+      // Force imports used only as types to be written `import type { ... }`.
+      // Type-only imports are erased at build time, so marking them keeps the
+      // emitted bundle free of phantom runtime imports, prevents accidental
+      // value/type coupling, and documents intent at the import site.
+      '@typescript-eslint/consistent-type-imports': 'error'
     }
   },
   {
