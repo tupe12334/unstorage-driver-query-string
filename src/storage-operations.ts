@@ -40,7 +40,7 @@ export function createStorageOperations(
       return value === null ? null : String(value)
     },
 
-    setItem: (key: string, value: string, _opts: TransactionOptions): Promise<void> => {
+    setItem: (key: string, value: string | null, _opts: TransactionOptions): Promise<void> => {
       try {
         const data = dataManager.getCurrentData(basePrefix)
         const newData = value === null || value === undefined

@@ -5,7 +5,10 @@ export default [
   {
     rules: {
       // Require === and !== to avoid implicit type coercion bugs.
-      eqeqeq: ['error', 'always']
+      eqeqeq: ['error', 'always'],
+      // Forbid non-null assertions (`x!`) which silence the compiler and can
+      // hide real null/undefined values that crash at runtime.
+      '@typescript-eslint/no-non-null-assertion': 'error'
     }
   },
   {
