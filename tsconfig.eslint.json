@@ -1,0 +1,6 @@
+{
+  "//": "Lint-only TS project. The build tsconfig excludes *.test.ts, but the eslint script lints src/ (tests included) and eslint-config-agent v3 uses type-aware rules that require every linted file to belong to a TS project. This config adds the test files for linting only; the build still uses tsconfig.json.",
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*.ts", "*.mjs"],
+  "exclude": ["node_modules", "dist"]
+}
