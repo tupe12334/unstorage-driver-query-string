@@ -20,7 +20,10 @@ export default [
       // Disallow reassigning function parameters. Mutating a parameter hides
       // the original argument, breaks referential reasoning, and is a common
       // source of subtle bugs in parsing/transform code.
-      'no-param-reassign': ['error', { props: false }]
+      'no-param-reassign': ['error', { props: false }],
+      // Force `import type` for type-only imports so they are erased at
+      // compile time and never leak into the runtime bundle.
+      '@typescript-eslint/consistent-type-imports': 'error'
     }
   },
   {
