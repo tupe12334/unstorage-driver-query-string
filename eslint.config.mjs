@@ -12,6 +12,11 @@ export default [
       // allowed for the driver's legitimate diagnostics (e.g. the URL-length
       // warning in url-updater.ts).
       'no-console': ['error', { allow: ['warn', 'error'] }],
+      // Only allow throwing Error objects. Throwing strings or plain objects
+      // (e.g. `throw 'boom'`) loses the stack trace and breaks `instanceof`
+      // checks for consumers catching this driver's failures. The driver
+      // already throws `QueryStringDriverError` everywhere; this locks that in.
+      'no-throw-literal': 'error',
       // Flag unused variables, imports and arguments to catch dead code.
       // Names prefixed with `_` are treated as intentionally unused.
       '@typescript-eslint/no-unused-vars': [
