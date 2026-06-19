@@ -12,6 +12,11 @@ export default [
       // allowed for the driver's legitimate diagnostics (e.g. the URL-length
       // warning in url-updater.ts).
       'no-console': ['error', { allow: ['warn', 'error'] }],
+      // Only allow throwing Error objects. Throwing strings or plain objects
+      // (e.g. `throw 'boom'`) loses the stack trace and breaks `instanceof`
+      // checks for consumers catching this driver's failures. The driver
+      // already throws `QueryStringDriverError` everywhere; this locks that in.
+      'no-throw-literal': 'error',
       // Disallow reassigning function parameters. Mutating a parameter hides
       // the original argument, breaks referential reasoning, and is a common
       // source of subtle bugs in parsing/transform code.
