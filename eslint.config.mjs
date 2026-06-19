@@ -12,6 +12,11 @@ export default [
       // allowed for the driver's legitimate diagnostics (e.g. the URL-length
       // warning in url-updater.ts).
       'no-console': ['error', { allow: ['warn', 'error'] }],
+      // Only allow throwing Error objects. Throwing strings or plain objects
+      // (e.g. `throw 'boom'`) loses the stack trace and breaks `instanceof`
+      // checks for consumers catching this driver's failures. The driver
+      // already throws `QueryStringDriverError` everywhere; this locks that in.
+      'no-throw-literal': 'error',
       // Forbid non-null assertions (`x!`) which silence the compiler and can
       // hide real null/undefined values that crash at runtime.
       '@typescript-eslint/no-non-null-assertion': 'error'
