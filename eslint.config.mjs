@@ -19,7 +19,10 @@ export default [
       'no-throw-literal': 'error',
       // Disallow shorthand type coercions (!!x, +x, '' + x) in favor of
       // explicit Boolean(x)/Number(x)/String(x) for clearer, safer conversions.
-      'no-implicit-coercion': 'error'
+      'no-implicit-coercion': 'error',
+      // Force `import type` for type-only imports so they are erased at
+      // compile time and never leak into the runtime bundle.
+      '@typescript-eslint/consistent-type-imports': 'error'
     }
   },
   {
