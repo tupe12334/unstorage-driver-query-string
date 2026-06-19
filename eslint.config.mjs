@@ -26,7 +26,10 @@ export default [
           varsIgnorePattern: '^_',
           caughtErrorsIgnorePattern: '^_'
         }
-      ]
+      ],
+      // Force `import type` for type-only imports so they are erased at
+      // compile time and never leak into the runtime bundle.
+      '@typescript-eslint/consistent-type-imports': 'error'
     }
   },
   {
