@@ -16,7 +16,10 @@ export default [
       // (e.g. `throw 'boom'`) loses the stack trace and breaks `instanceof`
       // checks for consumers catching this driver's failures. The driver
       // already throws `QueryStringDriverError` everywhere; this locks that in.
-      'no-throw-literal': 'error'
+      'no-throw-literal': 'error',
+      // Force `import type` for type-only imports so they are erased at
+      // compile time and never leak into the runtime bundle.
+      '@typescript-eslint/consistent-type-imports': 'error'
     }
   },
   {
