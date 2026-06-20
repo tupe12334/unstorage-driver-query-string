@@ -6,6 +6,13 @@ export default [
     rules: {
       // Require === and !== to avoid implicit type coercion bugs.
       eqeqeq: ['error', 'always'],
+      // Require every function's `return` statements to be consistent: either
+      // all of them specify a value or none do. A function that returns a
+      // value on one branch but falls through on another silently yields
+      // `undefined`, which propagates into stored state or URL output in this
+      // parsing/transform driver. This makes accidental fall-through a lint
+      // error and complements `array-callback-return` below.
+      'consistent-return': 'error',
       // Disallow stray `console` calls in this published driver. Debug logs
       // that slip into the package pollute consumers' browser/server output
       // and can leak internal state; `console.warn`/`console.error` stay
