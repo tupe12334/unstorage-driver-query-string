@@ -41,7 +41,21 @@ export default [
       // so a missing return is a real correctness bug. `checkForEach` also
       // flags a `forEach` callback that returns a value, which usually means
       // the wrong method (`map`/`filter`) was intended.
-      'array-callback-return': ['error', { checkForEach: true }]
+      'array-callback-return': ['error', { checkForEach: true }],
+      // Require template literals (`` `${base}?${query}` ``) instead of string
+      // concatenation with `+` (`base + '?' + query`). The `+` operator is
+      // overloaded for both numeric addition and string concatenation, so a
+      // single non-string operand silently flips the meaning of the whole
+      // expression: `'?' + a + b` where `a`/`b` are numbers concatenates, while
+      // `a + b + '?'` adds first — a subtle coercion bug that is easy to write
+      // in a driver whose entire job is assembling URL/query strings out of
+      // mixed keys and values. Template literals always stringify and read
+      // left-to-right without juggling quotes and `+`, keeping one clear idiom
+      // for building the strings this package emits. The rule is auto-fixable,
+      // so it stays low-risk as the driver grows. The `src` tree already uses
+      // template literals everywhere, so there are no violations today — this
+      // simply locks the existing pattern in.
+      'prefer-template': 'error'
     }
   },
   {
