@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Reduced the bundled package size (#3)
-- Stricter lint baseline: enabled `eqeqeq`, `no-console`, `no-throw-literal`, `@typescript-eslint/consistent-type-imports`, `no-param-reassign`, and `array-callback-return` (#5, #6, #8, #10, #18, #21, #23)
+- Stricter lint baseline: enabled `eqeqeq`, `no-console`, `no-throw-literal`, `@typescript-eslint/consistent-type-imports`, `no-param-reassign`, `array-callback-return`, `consistent-return`, and `prefer-template` (#5, #6, #8, #10, #18, #21, #23, #27, #30)
 
 ## [1.2.0] - 2025-09-27
 
