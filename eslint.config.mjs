@@ -58,6 +58,16 @@ export default [
       // checks for consumers catching this driver's failures. The driver
       // already throws `QueryStringDriverError` everywhere; this locks that in.
       'no-throw-literal': 'error',
+      // Flag unused variables, imports and arguments to catch dead code.
+      // Names prefixed with `_` are treated as intentionally unused.
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_'
+        }
+      ],
       // Disallow reassigning function parameters. Mutating a parameter hides
       // the original argument, breaks referential reasoning, and is a common
       // source of subtle bugs in parsing/transform code.
