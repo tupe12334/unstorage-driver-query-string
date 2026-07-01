@@ -58,6 +58,9 @@ export default [
       // checks for consumers catching this driver's failures. The driver
       // already throws `QueryStringDriverError` everywhere; this locks that in.
       'no-throw-literal': 'error',
+      // Forbid non-null assertions (`x!`) which silence the compiler and can
+      // hide real null/undefined values that crash at runtime.
+      '@typescript-eslint/no-non-null-assertion': 'error'
       // Disallow reassigning function parameters. Mutating a parameter hides
       // the original argument, breaks referential reasoning, and is a common
       // source of subtle bugs in parsing/transform code.
