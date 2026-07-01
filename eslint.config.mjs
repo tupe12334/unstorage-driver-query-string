@@ -58,6 +58,9 @@ export default [
       // checks for consumers catching this driver's failures. The driver
       // already throws `QueryStringDriverError` everywhere; this locks that in.
       'no-throw-literal': 'error',
+      // Disallow shorthand type coercions (!!x, +x, '' + x) in favor of
+      // explicit Boolean(x)/Number(x)/String(x) for clearer, safer conversions.
+      'no-implicit-coercion': 'error',
       // Disallow reassigning function parameters. Mutating a parameter hides
       // the original argument, breaks referential reasoning, and is a common
       // source of subtle bugs in parsing/transform code.
