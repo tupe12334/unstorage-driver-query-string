@@ -58,6 +58,11 @@ export default [
       // checks for consumers catching this driver's failures. The driver
       // already throws `QueryStringDriverError` everywhere; this locks that in.
       'no-throw-literal': 'error',
+      // Force imports used only as types to be written `import type { ... }`.
+      // Type-only imports are erased at build time, so marking them keeps the
+      // emitted bundle free of phantom runtime imports, prevents accidental
+      // value/type coupling, and documents intent at the import site.
+      '@typescript-eslint/consistent-type-imports': 'error'
       // Disallow reassigning function parameters. Mutating a parameter hides
       // the original argument, breaks referential reasoning, and is a common
       // source of subtle bugs in parsing/transform code.
