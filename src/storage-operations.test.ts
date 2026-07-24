@@ -124,7 +124,8 @@ describe("Storage Operations", () => {
         toRemove: "value"
       });
 
-      await operations.setItem("toRemove", null!, {});
+      // Pass null to exercise the key-removal branch.
+      await operations.setItem("toRemove", null, {});
 
       expect(mockUpdateUrl).toHaveBeenCalledWith({ foo: "bar" });
     });
