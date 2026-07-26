@@ -102,6 +102,10 @@ Check out the [examples directory](./examples) for comprehensive demos:
 - **[React Example](./examples/react)** - Basic React demonstration showing all library features with simple form inputs
 - **[React Filter Demo](./examples/react-filter-demo)** - Advanced React application showcasing filter management with URL persistence and sharing
 
+## Related Projects
+
+- [moadim](https://moadim.io/) - loop engineering: build, schedule & run agent loops.
+
 ## License
 
 MIT
