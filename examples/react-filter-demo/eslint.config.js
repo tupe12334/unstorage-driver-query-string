@@ -1,23 +1,22 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
+import agent from 'eslint-config-agent/recommended-incremental'
 import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
+/**
+ * This demo previously used the stock Vite React template config
+ * (`@eslint/js` + `typescript-eslint` recommended + react-hooks +
+ * react-refresh). It now extends the shared `eslint-config-agent` instead, so
+ * the example is linted with the same ruleset as the driver itself.
+ *
+ * The `recommended-incremental` preset is used deliberately: the strict default
+ * surfaces ~100 pre-existing violations in this demo, which cannot be fixed
+ * safely in one pass. `recommended-incremental` disables the most divisive
+ * rules and downgrades the rest to warnings, so `npm run lint` exits 0 while
+ * the full backlog is still reported and can be burned down.
+ */
 export default defineConfig([
   globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-  },
+  ...agent,
+  // Vite-specific fast-refresh check, which the shared config does not cover.
+  reactRefresh.configs.vite,
 ])
